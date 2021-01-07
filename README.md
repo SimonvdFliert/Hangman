@@ -1,4 +1,11 @@
 # PythonGames
+Hangman uses PySimpleGUI. Before using this application please ensure that PySimpleGUI is installed on your computer. 
 
-This repository will hold different games created using Python. 
+Install PySimpleGUI with: 
 
+   pip install pysimplegui
+   OR
+   pip3 install pysimplegui
+
+
+PySimpleGUI doc: https://pysimplegui.readthedocs.io/en/latest/
