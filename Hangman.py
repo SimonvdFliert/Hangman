@@ -30,7 +30,7 @@ def play_Game(word):
     wordGuessed = False
     lives = 5
 
-    message = f"The length of the word is {len(word)}. Your word is {word}. "
+    message = f"The length of the word is {len(word)}."
     wordCompletion = "_" * len(word)
     
     layout = [
@@ -69,7 +69,6 @@ def play_Game(word):
                     lives -= 1
 
                 else:
-                    game_window['-OUTPUT-'].update(f"Nice! The letter {game_values['-INPUT-']} is in the word.")
                     game_window['-INPUT-'].update("")
                     previousGuesses.append(game_values['-INPUT-'])
 
@@ -85,7 +84,7 @@ def play_Game(word):
                     if "_" not in wordCompletion:
                         wordGuessed = True
 
-                    game_window['-OUTPUT-'].update(wordCompletion)
+                    game_window['-OUTPUT-'].update(f"Nice! The letter {game_values['-INPUT-']} is in the word. Word: {wordCompletion} \n\nPrevious Guesses: {previousGuesses}")
 
             elif len(game_values['-INPUT-']) != 1:
                 game_window['-OUTPUT-'].update(f"You have not entered the right amount of letters. Please only guess one letter per turn.\
@@ -115,7 +114,8 @@ def play_Game(word):
 def start_game():
     startingLayout = [[sg.Text("Welcome to the game of Hangman. In this game, you will be given a word which you will have to guess by entering different letters. You start with 5 lives. \n \
         Please press 'Start' to begin playing. If you do not wish to play, you can exit the program by pressing 'Stop' or by exiting the window.")],
-        
+        [sg.Text()],
+        [sg.Text()],
         [sg.Button('Start'), sg.Button('Stop')]]
 
         # Create the window
@@ -138,6 +138,8 @@ def replay_game():
     replayLayout = [
         
         [sg.Text("Thank you for playing Hangman! If you would like to replay, please press the 'Replay' button. You can exit the application by pressing 'Stop' or by closing the window.")],
+        [sg.Text()],
+        [sg.Text()],
         [sg.Button('Replay'), sg.Button('Stop')]]
 
     replayWindow = sg.Window('Hangman', replayLayout)
